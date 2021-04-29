@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Part First</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="myapp">
+        <!-- <input type="text" v-model="message">
+        <p>{{message}}</p> -->
+        <input type="checkbox" v-model.number="check" value="25"  id="check">
+        <label for="25">Plan 1</label>
+        <input type="checkbox" v-model.number="check" value="50" id="check">
+        <label for="50">Plan 2</label>
+        <input type="checkbox" v-model.number="check" value="100" id="check">
+        <label for="100">Plan 3</label>&nbsp;
+        <label> Total Amount {{check}}</label>
+        <input type="text" v-model="sum()">
+    </div>
+    
+    <script>
+        var app = new Vue({
+            el:'#myapp',
+            data:{
+                // message:"Hello world",
+                check:[]
+                 },
+                 methods:{
+                     sum(){
+                         return this.check.reduce(function(a,b){
+                        return parseInt(a) + parseInt(b);
+                         },0);
+                     }    
+                 }
+        });
+    </script>
+</body>
+</html>

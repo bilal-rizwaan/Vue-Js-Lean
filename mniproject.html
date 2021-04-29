@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Project Vue JS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div class="container" id="project">
+        <h1 class="text-danger text-center">Select Plan</h1>
+         <div class="input-group">
+                <input type="checkbox" value="20" id="check" v-model="check">&nbsp;&nbsp;
+                <label for="20"> Customer  Care $20</label>
+          </div>
+           <div class="input-group">
+                <input type="checkbox" value="60" id="check"v-model="check">&nbsp;&nbsp;
+                <label for="60"> Customer  Care $60</label>
+          </div>
+           <div class="input-group">
+                <input type="checkbox" value="120" id="check" v-model="check">&nbsp;&nbsp;
+                <label for="120"> Customer  Care $120</label>
+          </div>
+           <div class="input-group">
+                <input type="checkbox" value="220" id="check" v-model="check">&nbsp;&nbsp;
+                <label for="220"> Customer  Care $220</label>
+          </div>
+          <label>Total Amount</label>&nbsp;&nbsp;
+          <input type="text" v-model="sum()">
+    </div>
+    <script>
+        var app = new Vue({
+            data:{
+                check:[]
+            },
+            methods:{
+                sum(){
+                    return this.check.reduce(function(a,b){
+                    return parseInt(a) + parseInt(b);
+                    },0);
+
+                }
+            }
+        }).$mount('#project');
+    </script>
+</body>
+</html>
